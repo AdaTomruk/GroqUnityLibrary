@@ -45,7 +45,6 @@ public class GroqApiUnity : MonoBehaviour
     {
         groqApi = new GroqApiClient(apiKey);
 
-        // Örnek bir çağrı yapalım
         string exampleMessage = "Hello, how are you?";
         OnSubmit(exampleMessage);  
     }
