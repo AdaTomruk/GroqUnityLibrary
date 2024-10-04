@@ -1,57 +1,57 @@
-# Groq Unity Support Library
+# Groq Unity API Support Library
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
 
 ## Introduction
 
-This library provides support for integrating Groq Unity into your projects. It includes optimized tools, utilities, and modules that enable seamless interaction between Groq hardware and Unity, designed to boost performance in high-computation scenarios such as gaming, simulations, and AI.
+This library simplifies the integration of Groq API functionalities into Unity projects, making it easier for developers to utilize Groq's powerful capabilities within the Unity environment. The current focus is on providing streamlined access to Groq's **Chat Completion** functionality, with plans to support additional features in the future.
 
-## Features
+## Project Goal
 
-- **Seamless Integration**: Easy setup and use within Unity projects.
-- **Optimized Performance**: Utilizes Groq’s highly parallel architecture for computational acceleration.
-- **Scalable**: Designed to work efficiently with both small and large-scale projects.
-- **Customizable**: Configurable settings to fit various project needs.
+The primary aim of this project is to provide a lightweight and efficient API wrapper, enabling developers to easily leverage **Groq's API** for building intelligent, interactive experiences in Unity. Whether you’re developing games, simulations, or AI-powered applications, this library provides the tools you need to get started quickly.
+
+### Current Features
+
+- **Groq Chat Completion**: This feature allows you to integrate AI-driven chat functionality into your Unity projects. Ideal for dialogue systems, NPC interactions, and any scenario requiring natural language processing.
+  
+### Upcoming Features
+
+We are actively working on expanding the library to support additional Groq API features, including:
+
+- **Streaming Chat Completion**: Real-time chat completion to support dynamic conversational experiences.
+- **Audio Translation**: Convert spoken language into another language directly within Unity.
+- **Audio Transcription**: Transform speech into text for in-game narration, commands, or dialogue transcription.
 
 ## Getting Started
 
 ### Prerequisites
 
-To use this library, you need the following:
+Before using this library, make sure you have the following:
 
-- **Unity Version**: Unity 2020.3 or higher
-- **Groq SDK**: Ensure you have the latest Groq SDK installed. You can download it [here](https://groq.com/sdk-download).
-- **Platform**: This library is supported on Windows, Linux, and Mac.
+- **Unity Version**: Unity 2020.3 or later.
+- **Groq API Key**: You will need a valid API key from Groq. You can obtain one by signing up at [Groq API Dashboard](https://groq.com/signup).
+- **Groq SDK**: Ensure you have the latest version of the Groq SDK installed. You can download it from [here](https://groq.com/sdk-download).
 
 ### Installation
 
-To include the Groq Unity support library in your project, follow these steps:
-
-1. Clone the repository:
+1. Clone the repository to your local environment:
 
     ```bash
-    git clone https://github.com/your-username/groq-unity-support.git
+    git clone https://github.com/your-username/groq-unity-api-support.git
     ```
 
-2. Open your Unity project and navigate to `Assets -> Import Package -> Custom Package`.
+2. In Unity, go to `Assets -> Import Package -> Custom Package`.
 
-3. Select the downloaded `.unitypackage` file from the cloned repository.
+3. Select the `.unitypackage` file from the cloned repository.
 
-4. Once imported, go to `Edit -> Project Settings -> Groq Unity Settings` to configure your Groq hardware preferences.
+4. Once imported, configure your API Key in the `Groq Settings` panel found in `Edit -> Project Settings -> Groq Unity Settings`.
 
 ### Usage
 
-1. After installation, you can access the Groq functionalities via the `GroqManager` class:
-   
+To get started with Groq's **Chat Completion** in Unity, follow these steps:
+
+1. Import the required namespaces in your Unity script:
+
    ```csharp
    using GroqUnity;
-
-   public class MyGameScript : MonoBehaviour
-   {
-       void Start()
-       {
-           GroqManager.Initialize();
-           // Your code here
-       }
-   }
