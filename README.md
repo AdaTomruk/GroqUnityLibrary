@@ -31,36 +31,54 @@ To use this library in your unity project:
 Here's a simple example to get you started:
 
 ```csharp
-var request = new JObject
+using UnityEngine;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using GroqApiLibrary;
+
+public class GroqApiUnity : MonoBehaviour
 {
-    ["model"] = "llama3-8b-8192",
-    ["temperature"] = 0.5,
-    ["max_tokens"] = 100,
-    ["top_p"] = 1,
-    ["stop"] = "TERMINATE",
-    ["messages"] = new JArray
+    private string apiKey = "YOUR_API_KEY";  
+    private GroqApiClient groqApi;
+
+    void Start()
     {
-        new JObject
+        groqApi = new GroqApiClient(apiKey);
+
+        // Örnek bir çağrı yapalım
+        string exampleMessage = "Hello, how are you?";
+        OnSubmit(exampleMessage);  
+    }
+
+    public async void OnSubmit(string userMessage)
+    {
+        if (!string.IsNullOrEmpty(userMessage))
         {
-            ["role"] = "system",
-            ["content"] = "You are a helpful assistant."
-        },
-        new JObject
-        {
-            ["role"] = "user",
-            ["content"] = "Write a haiku about life"
+            var request = new JObject
+            {
+                ["model"] = "llama3-8b-8192",
+                ["temperature"] = 0.5,
+                ["max_tokens"] = 100,
+                ["top_p"] = 1,
+                ["messages"] = new JArray
+                {
+                    new JObject { ["role"] = "user", ["content"] = userMessage }
+                }
+            };
+
+            await GetChatCompletion(request);
         }
     }
-};
 
-await GetChatCompletion(request);
+    private async Task GetChatCompletion(JObject request)
+    {
+        var result = await groqApi.CreateChatCompletionAsync(request);
+        var response = result?["choices"]?[0]?["message"]?["content"]?.ToString() ?? "No response found";
 
-private async Task GetChatCompletion(JObject request)
-{
-    var result = await groqApi.CreateChatCompletionAsync(request);
-    var response = result?["choices"]?[0]?["message"]?["content"]?.ToString() ?? "No response found";
-    responseText.text = response;
+        Debug.Log(response);
+    }
 }
+
 ```
 
 
