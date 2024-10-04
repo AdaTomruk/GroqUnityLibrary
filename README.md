@@ -5,7 +5,7 @@
 
 ## 💡 Introduction 
 
-This library simplifies the integration of **Groq API** functionalities into Unity projects, making it easier for developers to utilize Groq's powerful capabilities within the Unity environment. The current focus is on providing streamlined access to **Groq's Chat Completion** functionality 🗨️, with plans to support additional features in the future.
+This community maintained library simplifies the integration of **Groq API** functionalities into Unity projects, making it easier for developers to utilize Groq's powerful capabilities within the Unity environment. The current focus is on providing streamlined access to **Groq's Chat Completion** functionality 🗨️, with plans to support additional features in the future.
 
 ### ✅ Current Features 
 
